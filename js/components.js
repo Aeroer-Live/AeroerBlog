@@ -104,8 +104,10 @@ class ComponentLoader {
         // Initialize dark mode toggle
         this.initDarkMode();
         
-        // Initialize mobile menu
-        this.initMobileMenu();
+        // Initialize mobile menu with delay to ensure header is loaded
+        setTimeout(() => {
+            this.initMobileMenu();
+        }, 200);
         
         // Initialize dropdowns with a small delay to ensure DOM is ready
         setTimeout(() => {
@@ -286,15 +288,29 @@ class ComponentLoader {
         const mobileMenuClose = document.querySelector('.mobile-menu-close');
         
         // Debug: Mobile menu elements
-        if (!mobileMenuToggle) console.log('Mobile menu toggle not found');
-        if (!mobileMenu) console.log('Mobile menu not found');
-        if (!mobileMenuClose) console.log('Mobile menu close not found');
+        console.log('Mobile menu elements found:', {
+            toggle: !!mobileMenuToggle,
+            menu: !!mobileMenu,
+            close: !!mobileMenuClose
+        });
+        
+        // Ensure mobile menu starts in closed state
+        if (mobileMenu) {
+            mobileMenu.classList.remove('active');
+        }
+        if (mobileMenuToggle) {
+            mobileMenuToggle.classList.remove('active');
+        }
+        document.body.classList.remove('menu-open');
         
         // Mobile menu toggle
         function toggleMobileMenu() {
+            console.log('toggleMobileMenu called');
+            console.log('Mobile menu before:', mobileMenu.classList.contains('active'));
             mobileMenu.classList.toggle('active');
             mobileMenuToggle.classList.toggle('active');
             document.body.classList.toggle('menu-open');
+            console.log('Mobile menu after:', mobileMenu.classList.contains('active'));
         }
 
         // Close mobile menu
@@ -306,21 +322,32 @@ class ComponentLoader {
 
         // Event listeners
         if (mobileMenuToggle) {
-            mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+            console.log('Adding mobile menu toggle event listener');
+            mobileMenuToggle.addEventListener('click', (e) => {
+                console.log('Mobile menu toggle clicked!');
+                e.preventDefault();
+                e.stopPropagation();
+                toggleMobileMenu();
+            });
+        } else {
+            console.log('Mobile menu toggle not found - cannot add event listener');
         }
 
         if (mobileMenuClose) {
             mobileMenuClose.addEventListener('click', closeMobileMenu);
         }
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (mobileMenu && mobileMenu.classList.contains('active') && 
-                !mobileMenu.contains(e.target) && 
-                !mobileMenuToggle.contains(e.target)) {
-                closeMobileMenu();
-            }
-        });
+        // Close mobile menu when clicking outside (temporarily disabled for debugging)
+        // document.addEventListener('click', (e) => {
+        //     if (mobileMenu && mobileMenu.classList.contains('active') && 
+        //         !mobileMenu.contains(e.target) && 
+        //         !mobileMenuToggle.contains(e.target)) {
+        //         console.log('Clicking outside mobile menu - closing');
+        //         setTimeout(() => {
+        //             closeMobileMenu();
+        //         }, 100);
+        //     }
+        // });
 
         // Close mobile menu on escape key
         document.addEventListener('keydown', (e) => {
