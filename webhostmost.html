@@ -112,15 +112,19 @@
 							</ul>
 						</div>
 
-						<!-- header buttons -->
-						<div class="header-buttons">
-							<button class="search icon-button">
-								<i class="icon-magnifier"></i>
-							</button>
-							<button class="burger-menu icon-button ms-2 float-end float-lg-none">
-								<span class="burger-icon"></span>
-							</button>
-						</div>
+							<!-- header buttons -->
+							<div class="header-buttons">
+								<button class="dark-mode-toggle me-2" id="darkModeToggle" aria-label="Toggle dark mode">
+									<i class="fas fa-sun toggle-icon sun-icon"></i>
+									<i class="fas fa-moon toggle-icon moon-icon"></i>
+								</button>
+								<button class="search icon-button">
+									<i class="icon-magnifier"></i>
+								</button>
+								<button class="burger-menu icon-button ms-2 float-end float-lg-none">
+									<span class="burger-icon"></span>
+								</button>
+							</div>
 					</div>
 				</div>
 
@@ -377,13 +381,6 @@
 							</div>		
 						</div>
 
-<!-- widget advertisement -->
-<div class="widget no-container rounded text-md-center">
-	<span class="ads-title">- Sponsored Ad -</span>
-	<a href="https://aeroer.live/businessemail" target="_blank" class="widget-ads">
-		<img src="images/ads/Eamil.png" alt="Advertisement" />	
-	</a>
-</div>
 
 						<!-- widget tags -->
 						<!-- <div class="widget rounded">
@@ -487,13 +484,23 @@
 	<!-- content -->
 	<div class="search-content">
 		<div class="text-center">
-			<h3 class="mb-4 mt-0">Press ESC to close</h3>
+			<h3 class="mb-4 mt-0">Search Blog Posts</h3>
+			<p class="text-muted mb-4">Type to search through all blog posts. Use arrow keys to navigate results.</p>
 		</div>
 		<!-- form -->
 		<form class="d-flex search-form">
-			<input class="form-control me-2" type="search" placeholder="Search and press enter ..." aria-label="Search">
+			<input class="form-control me-2" type="search" placeholder="Search posts, tags, or categories..." aria-label="Search" autocomplete="off">
 			<button class="btn btn-default btn-lg" type="submit"><i class="icon-magnifier"></i></button>
 		</form>
+		<div class="search-shortcuts mt-3">
+			<small class="text-muted">
+				<i class="fas fa-keyboard"></i> 
+				<strong>Shortcuts:</strong> 
+				<span class="shortcut">Ctrl + K</span> to open search, 
+				<span class="shortcut">ESC</span> to close, 
+				<span class="shortcut">↑↓</span> to navigate
+			</small>
+		</div>
 	</div>
 </div>
 
