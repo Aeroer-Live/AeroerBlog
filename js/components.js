@@ -16,8 +16,9 @@ class ComponentLoader {
                 return;
             }
 
-            // Fetch component HTML
-            const response = await fetch(`components/${componentName}.html`);
+            // Fetch component HTML - detect if we're in pages/ folder
+            const basePath = window.location.pathname.includes('/pages/') ? '../' : '';
+            const response = await fetch(`${basePath}components/${componentName}.html`);
             if (!response.ok) {
                 throw new Error(`Failed to load ${componentName}: ${response.status}`);
             }
@@ -31,7 +32,15 @@ class ComponentLoader {
             // Insert into target element
             const targetElement = document.querySelector(targetSelector);
             if (targetElement) {
-                targetElement.innerHTML = html;
+                // Fix links if we're in pages/ folder
+                let processedHtml = html;
+                if (window.location.pathname.includes('/pages/')) {
+                    // Fix links to index.html - add ../ prefix
+                    processedHtml = processedHtml.replace(/href="index\.html"/g, 'href="../index.html"');
+                    // Fix links to pages - remove pages/ prefix since we're already in pages/
+                    processedHtml = processedHtml.replace(/href="pages\/([^"]+\.html)"/g, 'href="$1"');
+                }
+                targetElement.innerHTML = processedHtml;
                 
                 // Trigger component loaded event
                 this.onComponentLoaded(componentName, targetElement);
