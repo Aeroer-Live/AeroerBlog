@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Building My Own Secure Note-Taking Web App 🗒️💻 | Aeroer.Blog</title>
+	<meta name="keywords" content="Note.Lab, secure note-taking app, developer notes, privacy-focused notes, secure notes app, CodeMirror, Prism.js, Cloudflare Workers, D1 database, R2 storage, JWT authentication, developer tools, secure documentation, note-taking for developers, private notes, encrypted notes">
+	<meta name="description" content="Building My Own Secure Note-Taking Web App - Note.Lab. A developer-focused, privacy-first note application built with Cloudflare Workers, featuring Markdown editing, syntax highlighting, and secure authentication.">
+	<meta name="author" content="Aeroer">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="shortcut icon" type="image/x-icon" href="../images/favicon.png">
+
+	<!-- Open Graph Meta Tags -->
+	<meta property="og:title" content="Building My Own Secure Note-Taking Web App — Note.Lab 🗒️💻">
+	<meta property="og:description" content="A developer-focused, privacy-first note application built with Cloudflare Workers, featuring Markdown editing, syntax highlighting, and secure authentication.">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://aeroerblog.com/pages/note-lab.html">
+	<meta property="og:site_name" content="Aeroer.Blog">
+	<meta property="og:locale" content="en_US">
+
+	<!-- Twitter Card Meta Tags -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Building My Own Secure Note-Taking Web App — Note.Lab">
+	<meta name="twitter:description" content="A developer-focused, privacy-first note application built with Cloudflare Workers.">
+
+	<!-- Additional SEO Meta Tags -->
+	<meta name="robots" content="index, follow">
+	<meta name="language" content="English">
+	<meta name="distribution" content="global">
+	<meta name="rating" content="general">
+	<meta name="theme-color" content="#f38020">
+	<meta name="msapplication-TileColor" content="#f38020">
+	<meta name="application-name" content="Aeroer.Blog">
+	<link rel="canonical" href="https://aeroerblog.com/pages/note-lab.html">
+
+	<!-- STYLES -->
+	<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" media="all">
+	<link rel="stylesheet" href="../css/all.min.css" type="text/css" media="all">
+	<link rel="stylesheet" href="../css/slick.css" type="text/css" media="all">
+	<link rel="stylesheet" href="../css/simple-line-icons.css" type="text/css" media="all">
+	<link rel="stylesheet" href="../css/style.css" type="text/css" media="all">
+
+
+</head>
+
+<body>
+
+<!-- preloader -->
+<div id="preloader">
+	<div class="book">
+		<div class="inner">
+			<div class="left"></div>
+			<div class="middle"></div>
+			<div class="right"></div>
+		</div>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</div>
+
+<!-- site wrapper -->
+<div class="site-wrapper">
+
+	<div class="main-overlay"></div>
+
+	<!-- Dynamic Header Container -->
+	<div id="header-container"></div>
+
+	<!-- cover header -->
+    <section class="single-cover data-bg-image" data-bg-image="../images/note/Note.lab02.jpeg"">
+
+        <div class="container-xl">
+
+            <div class="cover-content post">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../index.html">Aeroer Blog</a></li>
+                        <li class="breadcrumb-item"><a href="#">Tech</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Secure Note-Taking Web App</li>
+                    </ol>
+                </nav>
+
+                <!-- post header -->
+                <div class="post-header">
+                    <h1 class="title mt-0 mb-3">Building My Own Secure Note-Taking Web App 🗒️💻</h1>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+	<!-- section main content -->
+	<section class="main-content">
+		<div class="container-xl">
+
+			<div class="row gy-4">
+
+				<div class="col-lg-8">
+					<!-- post single -->
+                    <div class="post post-single">
+						<!-- post content -->
+						<div class="post-content clearfix">
+							<p>For years, I've been taking notes the old school way with pen and notebook.</p>
+
+							<p>Sometimes, I also use digital note apps where I store passwords, code snippets, APIs, and even server login details.</p>
+
+							<p>But as we all know, no matter which platform you use, digital notes are never 100% safe.</p>
+
+							<hr>
+
+							<h4>The Need for Privacy and Control</h4>
+
+							<p>Nowadays, Alhamdulillah, I'm involved in some sensitive projects that require a high level of confidentiality especially from my company's side.</p>
+
+							<p>As developers, we often deal with access credentials, internal APIs, and private codebases, which can't be risked on third-party platforms.</p>
+
+							<p>So, for a long time, I've been planning to build my own secure note-taking system—something flexible, customizable, and fully under my control.</p>
+
+							<p>And Alhamdulillah, after months of work, that vision is now a reality.</p>
+
+							<hr>
+
+							<h4>Introducing Note.Lab — A Developer-Focused Secure Notes App</h4>
+
+							<!-- Image placeholder - update later -->
+							<figure class="figure">
+								<img src="../images/note/Note.lab02.jpeg" class="figure-img img-fluid rounded" alt="Note.Lab Application">
+								<figcaption class="figure-caption text-center">Note.Lab - Secure Note-Taking Web App</figcaption>
+							</figure>
+
+							<p>Note.Lab is a web-based note application designed specifically for developers who value privacy and data ownership.</p>
+
+							<p>It's built with simplicity, flexibility, and security in mind — ideal for managing everything from code snippets and project notes to credentials and technical documentation.</p>
+
+							<p>While I'll still use Google Keep for casual notes or quick thoughts, all sensitive and confidential information will now go exclusively into Note.Lab, Insha'Allah.</p>
+
+							<hr>
+
+							<h4 class="mb-4">Key Features</h4>
+
+							<div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+								<!-- Feature Card 1 -->
+								<div class="feature-card" style="background: var(--bg-secondary, #f8f9fa); border: 1px solid var(--border-color, #EBEBEB); border-radius: 12px; padding: 1.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
+									<div class="feature-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, #007bff, #0056b3); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);">
+										<i class="fab fa-github" style="color: #fff; font-size: 1.5rem;"></i>
+									</div>
+									<h5 style="color: var(--text-primary, #203656); font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem;">Developer-Friendly Interface</h5>
+									<p style="color: var(--text-secondary, #8F9BAD); font-size: 0.95rem; line-height: 1.6; margin: 0;">A clean and minimal UI inspired by GitHub, optimized for coding and technical documentation.</p>
+								</div>
+
+								<!-- Feature Card 2 -->
+								<div class="feature-card" style="background: var(--bg-secondary, #f8f9fa); border: 1px solid var(--border-color, #EBEBEB); border-radius: 12px; padding: 1.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
+									<div class="feature-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, #28a745, #1e7e34); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);">
+										<i class="fas fa-code" style="color: #fff; font-size: 1.5rem;"></i>
+									</div>
+									<h5 style="color: var(--text-primary, #203656); font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem;">Markdown Editor with Syntax Highlighting</h5>
+									<p style="color: var(--text-secondary, #8F9BAD); font-size: 0.95rem; line-height: 1.6; margin: 0;">Powered by CodeMirror and Prism.js, allowing smooth formatting of text, code, and structured content.</p>
+								</div>
+
+								<!-- Feature Card 3 -->
+								<div class="feature-card" style="background: var(--bg-secondary, #f8f9fa); border: 1px solid var(--border-color, #EBEBEB); border-radius: 12px; padding: 1.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
+									<div class="feature-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, #ffc107, #e0a800); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);">
+										<i class="fas fa-tags" style="color: #fff; font-size: 1.5rem;"></i>
+									</div>
+									<h5 style="color: var(--text-primary, #203656); font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem;">Categorization and Tagging</h5>
+									<p style="color: var(--text-secondary, #8F9BAD); font-size: 0.95rem; line-height: 1.6; margin: 0;">Organize notes using tags, categories, and starred lists for quick access.</p>
+								</div>
+
+								<!-- Feature Card 4 -->
+								<div class="feature-card" style="background: var(--bg-secondary, #f8f9fa); border: 1px solid var(--border-color, #EBEBEB); border-radius: 12px; padding: 1.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
+									<div class="feature-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, #17a2b8, #117a8b); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; box-shadow: 0 4px 12px rgba(23, 162, 184, 0.3);">
+										<i class="fas fa-search" style="color: #fff; font-size: 1.5rem;"></i>
+									</div>
+									<h5 style="color: var(--text-primary, #203656); font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem;">Full-Text Search and Batch Operations</h5>
+									<p style="color: var(--text-secondary, #8F9BAD); font-size: 0.95rem; line-height: 1.6; margin: 0;">Easily search through all notes and perform multi-note actions efficiently.</p>
+								</div>
+
+								<!-- Feature Card 5 -->
+								<div class="feature-card" style="background: var(--bg-secondary, #f8f9fa); border: 1px solid var(--border-color, #EBEBEB); border-radius: 12px; padding: 1.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
+									<div class="feature-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, #dc3545, #c82333); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);">
+										<i class="fas fa-shield-alt" style="color: #fff; font-size: 1.5rem;"></i>
+									</div>
+									<h5 style="color: var(--text-primary, #203656); font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem;">Secure Authentication</h5>
+									<p style="color: var(--text-secondary, #8F9BAD); font-size: 0.95rem; line-height: 1.6; margin: 0;">Built with JWT-based login, session management, and password recovery systems.</p>
+								</div>
+
+								<!-- Feature Card 6 -->
+								<div class="feature-card" style="background: var(--bg-secondary, #f8f9fa); border: 1px solid var(--border-color, #EBEBEB); border-radius: 12px; padding: 1.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
+									<div class="feature-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, #f38020, #d66d00); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; box-shadow: 0 4px 12px rgba(243, 128, 32, 0.3);">
+										<i class="fas fa-cloud" style="color: #fff; font-size: 1.5rem;"></i>
+									</div>
+									<h5 style="color: var(--text-primary, #203656); font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem;">Serverless and Scalable</h5>
+									<p style="color: var(--text-secondary, #8F9BAD); font-size: 0.95rem; line-height: 1.6; margin-bottom: 0.75rem;">Hosted on Cloudflare's edge network, using:</p>
+									<ul style="color: var(--text-secondary, #8F9BAD); font-size: 0.9rem; margin: 0; padding-left: 1.25rem; line-height: 1.8;">
+										<li>D1 (SQLite) for fast, full-text search</li>
+										<li>R2 for secure file attachments</li>
+										<li>KV for session and cache management</li>
+									</ul>
+								</div>
+							</div>
+
+							<hr>
+
+							<h4>Tech Stack Overview</h4>
+
+							<ul>
+								<li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+								<li><strong>Libraries:</strong> CodeMirror, Prism.js</li>
+								<li><strong>Infrastructure:</strong> Cloudflare Workers, D1, R2, KV</li>
+								<li><strong>Security:</strong> JWT Authentication, Environment Variables, and Optional Self-Hosting</li>
+							</ul>
+
+							<!-- Additional image placeholders - update later -->
+							<figure class="figure">
+								<img src="../images/note/Note.Lab.png" class="figure-img img-fluid rounded" alt="Note.Lab Features">
+								<figcaption class="figure-caption text-center">Note.Lab Key Features</figcaption>
+							</figure>
+
+							<!-- Additional image placeholders - update later -->
+							<figure class="figure">
+								<img src="../images/note/Note.Lab03.jpeg" class="figure-img img-fluid rounded" alt="Note.Lab Features">
+								<figcaption class="figure-caption text-center">Note.Lab Key Features</figcaption>
+							</figure>
+
+							<hr>
+
+							<h4>Setup & Deployment</h4>
+
+							<p>If you're a developer who wants to self-host Note.Lab, here's how you can get started:</p>
+
+							<ol>
+								<li><strong>Install Node.js (v16+) and npm.</strong></li>
+								
+								<li><strong>Install Wrangler CLI:</strong>
+									<pre><code class="language-bash">npm install -g wrangler</code></pre>
+								</li>
+								
+								<li><strong>Clone the repository:</strong>
+									<pre><code class="language-bash">git clone https://github.com/Aeroer-Live/Note.Lab.git</code></pre>
+								</li>
+								
+								<li><strong>Set up your Cloudflare environment:</strong>
+									<ul>
+										<li>Create a D1 database</li>
+										<li>Configure KV namespace (e.g., SESSIONS)</li>
+										<li>Create an R2 bucket for attachments</li>
+										<li>Define environment variables (JWT_SECRET, ENVIRONMENT) in <code>wrangler.toml</code></li>
+									</ul>
+								</li>
+								
+								<li><strong>Deploy:</strong>
+									<pre><code class="language-bash">wrangler deploy</code></pre>
+								</li>
+							</ol>
+
+                            <!-- Additional image placeholders - update later -->
+							<figure class="figure">
+								<img src="../images/note/Note.Lab04.jpeg" class="figure-img img-fluid rounded" alt="Note.Lab Features">
+								<figcaption class="figure-caption text-center">Note.Lab Key Features</figcaption>
+							</figure>
+
+							<p>Once deployed, you can log in securely, create notes, and manage everything under your own server.</p>
+
+							<hr>
+
+							<h4>🚀 What's Next</h4>
+
+							<p>I'm currently planning several future enhancements, including:</p>
+
+							<ul>
+								<li>Note export/import (PDF, Markdown)</li>
+								<li>Version history (like Git commits)</li>
+								<li>Offline mode with auto-sync</li>
+								<li>Shared notes with access control</li>
+								<li>AI-powered note summaries</li>
+								<li>Two-Factor Authentication (2FA)</li>
+							</ul>
+
+							<hr>
+
+							<h4>🌍 Open Source for the Community</h4>
+
+							<p>The GitHub repository is public, so anyone is welcome to explore, modify, or expand the project:</p>
+
+							<p> <a href="https://github.com/Aeroer-Live/Note.Lab" target="_blank" rel="noopener noreferrer">💻 Github </a></p>
+
+                            <p> <a href="https://note-lab.pages.dev/login" target="_blank" rel="noopener noreferrer">🌐 Live</a></p>
+
+							<p>You can add your own backend, host it locally or on your home server, and fully customize it to your workflow.</p>
+
+							<p>This project started as a personal solution to a real problem I faced — and I hope it inspires other developers to take control of their data, too.</p>
+
+						</div>
+						<!-- post bottom section -->
+						<div class="post-bottom">
+							<div class="row d-flex align-items-center">
+								<div class="col-md-6 col-12 text-center text-md-start">
+									<!-- tags -->
+									<a href="#" class="tag">#Note.Lab</a>
+									<a href="#" class="tag">#Web Development</a>
+									<a href="#" class="tag">#Cloudflare Workers</a>
+									<a href="#" class="tag">#Secure Notes</a>
+								</div>
+
+							</div>
+						</div>
+
+                    </div>
+
+					<div class="spacer" data-height="50"></div>
+
+					<div class="about-author padding-30 rounded">
+						<div class="thumb">
+							<img src="../images/other/avatar-about.png" alt="Katen Doe" />
+						</div>
+						<div class="details">
+							<h4 class="name"><a href="#">Aeroer</a></h4>
+							<p>As a passionate tech enthusiast and avid writer, I'm thrilled to embark on this journey with you. Through this platform, we'll explore the latest innovations, dissect emerging trends, and dive deep into the fascinating world of technology.</p>
+							<!-- social icons -->
+							<ul class="social-icons list-unstyled list-inline mb-0">
+								<li class="list-inline-item"><a href="https://www.facebook.com/Iron.A.Man.I/"><i class="fab fa-facebook-f"></i></a></li>
+								<li class="list-inline-item"><a href="https://x.com/aeroermak?s=21&t=17Mnz8HO7SPctoy6ZgKPIw"><i class="fab fa-twitter"></i></a></li>
+								<li class="list-inline-item"><a href="https://www.instagram.com/aeroer.me/"><i class="fab fa-instagram"></i></a></li>
+								<li class="list-inline-item"><a href="https://medium.com/@Aeroer"><i class="fab fa-medium"></i></a></li>
+								<li class="list-inline-item"><a href="https://www.youtube.com/@Aeroermak"><i class="fab fa-youtube"></i></a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="spacer" data-height="50"></div>
+
+					<!-- comment form -->
+					<div class="comment-form rounded bordered padding-30">
+
+						<a href="seo.html">
+							<button class="btn btn-default">Next Blog</button>
+						</a>
+					</div>
+                </div>
+
+				<div class="col-lg-4">
+
+					<!-- sidebar -->
+					<div class="sidebar">
+						<!-- widget about -->
+						<div class="widget rounded">
+							<div class="widget-about data-bg-image text-center" data-bg-image="../images/map-bg.png">
+								<img src="../images/logo.png" alt="logo" class="mb-4" />
+								<p class="mb-4">Welcome to Aeroer Blog, Whether you're a seasoned developer, a budding designer, or simply a tech enthusiast, this blog is crafted with you in mind. Join us on a journey where we delve into the latest trends, share practical tips and tutorials, and explore the ever-evolving landscape of technology.</p>
+								<ul class="social-icons list-unstyled list-inline mb-0">
+									<li class="list-inline-item"><a href="https://github.com/AeroerMak" target="_blank"><i class="fab fa-github"></i></a></li>
+									<li class="list-inline-item"><a href="https://medium.com/@Aeroer" target="_blank"><i class="fab fa-medium"></i></a></li>
+									<li class="list-inline-item"><a href="https://www.youtube.com/@Aeroermak" target="_blank"><i class="fab fa-youtube"></i></a></li>
+								</ul>
+							</div>
+						</div>
+
+						
+
+						<!-- widget categories -->
+						<div class="widget rounded">
+							<div class="widget-header text-center">
+								<h3 class="widget-title">Explore Topics</h3>
+								<img src="../images/wave.svg" class="wave" alt="wave" />
+							</div>
+							<div class="widget-content">
+								<ul class="list">
+									<li><a href="#">Software Development</a></li>
+									<li><a href="#">Web-Hosting</a></li>
+									<li><a href="#">Web-Development</a></li>
+									<li><a href="#">Dev-Life</a></li>
+									<li><a href="#">Graphic Design</a></li>
+									<li><a href="#">UI & UX</a></li>
+								</ul>
+							</div>
+							
+						</div>
+
+
+
+						<!-- widget post carousel -->
+						<div class="widget rounded">
+							<div class="widget-header text-center">
+								<h3 class="widget-title">Blogs</h3>
+								<img src="../images/wave.svg" class="wave" alt="wave" />
+							</div>
+							<div class="widget-content">
+								<div class="post-carousel-widget">
+									<!-- post -->
+									<div class="post post-carousel">
+										<div class="thumb rounded">
+											<a href="#" class="category-badge position-absolute">Web Hosting</a>
+											<a href="webhostmost.html">
+												<div class="inner">
+													<img src="../images/posts/websitehostmost.jpg" alt="Web Host Most" />
+												</div>
+											</a>
+										</div>
+										<h5 class="post-title mb-0 mt-4"><a href="webhostmost.html">Website-Hosting Server ( Web Host Most )</a></h5>
+										<ul class="meta list-inline mt-2 mb-0">
+											<li class="list-inline-item"><a href="https://aeroer.live/">Aeroer.Live</a></li>
+										</ul>
+									</div>
+									<!-- post -->
+									<div class="post post-carousel">
+										<div class="thumb rounded">
+											<a href="#" class="category-badge position-absolute">Google Drive Hosting</a>
+											<a href="webhosting.html">
+												<div class="inner">
+													<img src="../images/posts/googledrivehosting.jpg" alt="Google Drive as Web-Host" />
+												</div>
+											</a>
+										</div>
+										<h5 class="post-title mb-0 mt-4"><a href="webhosting.html">Google Drive as Web Hosting</a></h5>
+										<ul class="meta list-inline mt-2 mb-0">
+											<li class="list-inline-item"><a href="https://aeroer.live/">Aeroer.Live</a></li>
+										</ul>
+									</div>
+									<!-- post -->
+									<div class="post post-carousel">
+										<div class="thumb rounded">
+											<a href="#" class="category-badge position-absolute">Data Transfer</a>
+											<a href="webdata.html">
+												<div class="inner">
+													<img src="../images/posts/HTMLForm-GoogleSheets.jpg" alt="Google App Script" />
+												</div>
+											</a>
+										</div>
+										<h5 class="post-title mb-0 mt-4"><a href="webdata.html">Transfer data from HTML form to Google Sheets</a></h5>
+										<ul class="meta list-inline mt-2 mb-0">
+											<li class="list-inline-item"><a href="https://aeroer.live/">Aeroer.Live</a></li>
+											<!-- <li class="list-inline-item">29 March 2021</li> -->
+										</ul>
+									</div>
+								</div>
+								<!-- carousel arrows -->
+								<div class="slick-arrows-bot">
+									<button type="button" data-role="none" class="carousel-botNav-prev slick-custom-buttons" aria-label="Previous"><i class="icon-arrow-left"></i></button>
+									<button type="button" data-role="none" class="carousel-botNav-next slick-custom-buttons" aria-label="Next"><i class="icon-arrow-right"></i></button>
+								</div>
+							</div>		
+						</div>
+
+
+						<!-- widget tags -->
+						<!-- <div class="widget rounded">
+							<div class="widget-header text-center">
+								<h3 class="widget-title">Tag Clouds</h3>
+								<img src="../images/wave.svg" class="wave" alt="wave" />
+							</div>
+							<div class="widget-content">
+								<a href="#" class="tag">#Trending</a>
+								<a href="#" class="tag">#Video</a>
+								<a href="#" class="tag">#Featured</a>
+							</div>		
+						</div> -->
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</section>
+
+
+	<!-- Dynamic Footer Container -->
+	<div id="footer-container"></div>
+
+</div><!-- end site wrapper -->
+
+<!-- Dynamic Search Popup Container -->
+<div id="search-popup-container"></div>
+
+<!-- canvas menu -->
+<div class="canvas-menu d-flex align-items-end flex-column">
+	<!-- close button -->
+	<button type="button" class="btn-close" aria-label="Close"></button>
+
+	<!-- logo -->
+	<div class="logo">
+		<img src="../images/Bloglogo.png" alt="Aeroer Blog" />
+	</div>
+
+	<!-- menu -->
+	<nav>
+		<ul class="vertical-menu">
+
+				<li class="nav-item ">
+					<a class="nav-link" href="../index.html">My Blogs</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link active" href="webhosting.html">Recent</a>
+					</li>
+
+				<li class="nav-item">
+					<a class="nav-link"  href="https://aeroer.live/" target="_blank">Aeroer.Live</a>
+				</li>
+
+		</ul>
+	</nav>
+
+	<!-- social icons -->
+	<ul class="social-icons list-unstyled list-inline mb-0 mt-auto w-100">
+		<li class="list-inline-item"><a href="https://github.com/AeroerMak" target="_blank"><i class="fab fa-github"></i></a></li>
+		<li class="list-inline-item"><a href="https://medium.com/@Aeroer" target="_blank"><i class="fab fa-medium"></i></a></li>
+		<li class="list-inline-item"><a href="https://www.youtube.com/@Aeroermak" target="_blank"><i class="fab fa-youtube"></i></a></li>
+	</ul>
+</div>
+
+<!-- JAVA SCRIPTS -->
+<script src="../js/jquery.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/slick.min.js"></script>
+<script src="../js/jquery.sticky-sidebar.min.js"></script>
+<script src="../js/custom.js"></script>
+<script src="../js/components.js"></script>
+
+</body>
+</html>

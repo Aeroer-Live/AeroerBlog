@@ -4415,3 +4415,44 @@ mark {
 /* Newsletter dark mode styles removed */
 
 /*# sourceMappingURL=style.css.map */
+
+.feature-card {
+  cursor: pointer;
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(32, 54, 86, 0.15);
+  border-color: var(--border-color, #EBEBEB);
+}
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--border-color, #EBEBEB), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.feature-card:hover::before {
+  opacity: 1;
+}
+.feature-icon {
+  transition: transform 0.3s ease;
+}
+.feature-card:hover .feature-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+[data-theme="dark"] .feature-card {
+  background: var(--bg-secondary, #2d2d2d) !important;
+  border-color: var(--border-color, #444) !important;
+}
+[data-theme="dark"] .feature-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

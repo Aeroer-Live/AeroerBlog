@@ -215,40 +215,50 @@ $(function(){
         console.log('initSearchEngine called');
         
         // Blog posts data
+        // Determine base path based on current location
+        const basePath = window.location.pathname.includes('/pages/') ? '' : 'pages/';
+        
         const blogPosts = [
             {
                 title: "How to use Google Drive as Web Hosting (Free)",
-                url: "webhosting.html",
+                url: basePath + "webhosting.html",
                 excerpt: "Learn how to host your website for free using Google Drive. This comprehensive guide covers everything from setup to deployment.",
                 tags: ["web hosting", "google drive", "free hosting", "website deployment"],
                 category: "Web Hosting"
             },
             {
                 title: "Web Host Most - Complete Review",
-                url: "webhostmost.html",
+                url: basePath + "webhostmost.html",
                 excerpt: "Detailed review of Web Host Most hosting service. Features, pricing, performance analysis and user experience.",
                 tags: ["web hosting", "review", "hosting comparison", "web host most"],
                 category: "Web Hosting"
             },
             {
                 title: "Search Engine Optimization (SEO) - Complete Guide",
-                url: "seo.html",
+                url: basePath + "seo.html",
                 excerpt: "Master SEO with this comprehensive guide. Learn keyword research, on-page optimization, technical SEO and more.",
                 tags: ["seo", "search engine optimization", "keywords", "ranking", "google"],
                 category: "SEO"
             },
             {
                 title: "HTML Form Data Transfer to Google Sheets",
-                url: "webdata.html",
+                url: basePath + "webdata.html",
                 excerpt: "Learn how to collect form data and automatically transfer it to Google Sheets using HTML forms and Google Apps Script.",
                 tags: ["html forms", "google sheets", "data collection", "google apps script"],
                 category: "Web Development"
             },
             {
                 title: "Cloudflare Website Deployment with GitHub",
-                url: "cloudflare.html",
+                url: basePath + "cloudflare.html",
                 excerpt: "Step-by-step guide to deploy your website using Cloudflare Pages and GitHub integration for free hosting.",
                 tags: ["cloudflare", "github", "deployment", "free hosting", "pages"],
+                category: "Web Development"
+            },
+            {
+                title: "Building My Own Secure Note-Taking Web App — Note.Lab",
+                url: basePath + "note-lab.html",
+                excerpt: "A developer-focused, privacy-first note application built with Cloudflare Workers, featuring Markdown editing, syntax highlighting, and secure authentication.",
+                tags: ["note.lab", "secure notes", "cloudflare workers", "developer tools", "privacy", "markdown editor", "jwt authentication", "d1 database", "r2 storage"],
                 category: "Web Development"
             }
         ];
