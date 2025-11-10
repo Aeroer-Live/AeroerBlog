@@ -260,6 +260,13 @@ $(function(){
                 excerpt: "A developer-focused, privacy-first note application built with Cloudflare Workers, featuring Markdown editing, syntax highlighting, and secure authentication.",
                 tags: ["note.lab", "secure notes", "cloudflare workers", "developer tools", "privacy", "markdown editor", "jwt authentication", "d1 database", "r2 storage"],
                 category: "Web Development"
+            },
+            {
+                title: "My Experience with the Apple AirPods Pro 3",
+                url: basePath + "airpodspro3.html",
+                excerpt: "Hands-on impressions of the Apple AirPods Pro 3 covering noise cancellation, transparency, spatial audio, and seamless switching across Apple devices.",
+                tags: ["airpods pro 3", "apple ecosystem", "noise cancellation", "tech lifestyle", "true wireless earbuds", "spatial audio"],
+                category: "Tech Lifestyle"
             }
         ];
 
