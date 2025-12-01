@@ -267,6 +267,13 @@ $(function(){
                 excerpt: "Hands-on impressions of the Apple AirPods Pro 3 covering noise cancellation, transparency, spatial audio, and seamless switching across Apple devices.",
                 tags: ["airpods pro 3", "apple ecosystem", "noise cancellation", "tech lifestyle", "true wireless earbuds", "spatial audio"],
                 category: "Tech Lifestyle"
+            },
+            {
+                title: "Think Like Engineers — Building the Next Generation of Young Malaysian Innovators",
+                url: basePath + "think-like-engineers.html",
+                excerpt: "A learning platform designed for Malaysian children to explore programming fundamentals through fun, interactive video games. Turn screen time into learning time.",
+                tags: ["think like engineers", "malaysian children education", "programming for kids", "interactive learning games", "coding education", "children programming", "educational games", "malaysian innovators"],
+                category: "Education"
             }
         ];
 
